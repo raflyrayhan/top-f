@@ -1,0 +1,43 @@
+/* Navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 16px 32px;
+  background-color: #ffffffc6;
+  backdrop-filter: blur(12px);
+  color: #980303; /* gray-800 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo styling (optional) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Navigation links container */
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+  align-items: center;
+}
+
+/* Link styling */
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #0d9488; /* teal-600 */
+}
