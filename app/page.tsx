@@ -66,7 +66,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-10" />
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold uppercase">
-            PT. REKAYASA ENERGI BERSAMA
+            <strong>PT.</strong> <strong className='text-black'>REKAYASA</strong> <strong className='text-red-800'>ENERGI</strong> <strong className='text-gray-300'>BERSAMA</strong>
           </h1>
           <p className="mt-6 max-w-2xl text-lg md:text-xl">
             Indonesian Engineering Company delivering package solutions for oil & gas
@@ -97,9 +97,10 @@ export default function Home() {
           <p className="text-lg text-gray-600 leading-relaxed">
             REB (Rekayasa Energi Bersama) is a proudly local Indonesian company, providing smart and reliable package solutions for the power and oil & gas industries since 2018. With passionate engineers and trusted tools, we bring your ideas to life — from design to delivery.
           </p>
-          <button className="mt-10 border border-black px-6 py-2 text-sm uppercase tracking-wider bg-red-600 hover:text-white font-bold transition border-r-2">
+          <br/>
+          <a href="/about" className="mt-10 border border-black px-6 py-2 text-sm uppercase tracking-wider bg-red-600 hover:text-white font-bold transition border-r-2">
           More About Us
-          </button>
+          </a>
         </div>
       </section>
 
@@ -122,7 +123,7 @@ export default function Home() {
                 <p className="text-gray-800 flex-1 mb-6">
                   {item.description}
                 </p>
-                <button className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded">
+                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded">
                   Learn More
                 </button>
               </div>
@@ -208,7 +209,7 @@ export default function Home() {
             <li><span className="font-semibold">P:</span> +6221 576 1725 (hunting)</li>
             <li><span className="font-semibold">F:</span> +6221 576 2581</li>
             <li><span className="font-semibold">Whatsapp:</span> +62811 1013 5360</li>
-            <li><span className="font-semibold">E-mail:</span> sutomo@reka-energi.com</li>
+            <li><span className="font-semibold">E-mail:</span> sales@reka-energi.com</li>
           </ul>
         </div>
       </div>
