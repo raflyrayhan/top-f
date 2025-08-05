@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const initialState = {
   name: "",
@@ -13,22 +14,33 @@ export default function ContactPage() {
   const [{ name, email, message }, setState] = useState(initialState);
   const [messageSent, setMessageSent] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setState((prev) => ({ ...prev, [name]: value }));
   };
 
   const clearState = () => setState({ ...initialState });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
-      // Replace with your email API
-      console.log({ name, email, message });
+      // replace these IDs with your own from EmailJS dashboard
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID!;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        { from_name: name, reply_to: email, message },
+        userId
+      );
+
       clearState();
       setMessageSent(true);
     } catch (err) {
-      console.error(err);
+      console.error("EmailJS error:", err);
     }
   };
 
@@ -75,7 +87,7 @@ export default function ContactPage() {
               className="w-full p-3 rounded-md bg-[#1a1a1a] border border-[#444] text-white placeholder-gray-400"
               value={message}
               onChange={handleChange}
-            ></textarea>
+            />
             <button
               type="submit"
               className="w-full bg-[#387f1a] hover:bg-green-600 text-white py-3 rounded-md font-semibold transition"
@@ -83,26 +95,38 @@ export default function ContactPage() {
               Send Message
             </button>
             {messageSent && (
-              <p className="text-green-400 text-sm mt-2">Message sent successfully!</p>
+              <p className="text-green-400 text-sm mt-2">
+                Message sent successfully!
+              </p>
             )}
           </form>
 
           <div className="space-y-6 text-sm text-white">
             <div>
-              <h1 className="text-bold text-[#379014]">Warehouse</h1>
-            Jl. Jababeka IV E Blok.V No.78Q, Jababeka 1, Cikarang Utara <br />
-            Bekasi, 17534 Indonesia <br /><br />
-            <h1 className="text-bold text-[#379014]">Office</h1>
-            Office Park Karawaci Ruko Pinangsia Selatan Blok F/72<br/>Tangerang, Banten 15138
-            <br/><br/>
-            <strong className="text-[#379014]">Phone:</strong> +62 21 89109606 <br />
-            <br/>
-            <strong className="text-[#379014]">Fax:</strong> +62 21 89109607 <br />
-            <br/>
-            <strong className="text-[#379014]">Email:</strong>{" "}
-            <a href="mailto:marketing@top-f.co.id" className="hover:underline text-white">
-              marketing@top-f.co.id
-            </a>
+              <h1 className="font-bold text-[#379014]">Warehouse</h1>
+              Jl. Jababeka IV E Blok.V No.78Q, Jababeka 1, Cikarang Utara <br />
+              Bekasi, 17534 Indonesia
+              <br />
+              <br />
+              <h1 className="font-bold text-[#379014]">Office</h1>
+              Office Park Karawaci Ruko Pinangsia Selatan Blok F/72
+              <br />
+              Tangerang, Banten 15138
+              <br />
+              <br />
+              <strong className="text-[#379014]">Phone:</strong> +62 21 89109606
+              <br />
+              <br />
+              <strong className="text-[#379014]">Fax:</strong> +62 21 89109607
+              <br />
+              <br />
+              <strong className="text-[#379014]">Email:</strong>{" "}
+              <a
+                href="mailto:marketing@top-f.co.id"
+                className="hover:underline text-white"
+              >
+                marketing@top-f.co.id
+              </a>
             </div>
           </div>
         </div>
