@@ -7,7 +7,7 @@ export default function Footer() {
       <span className="inline-flex items-center gap-1">
         Website by
         <a
-          href="https://infimech-tech.vercel.app"
+          href="https://infimech.tech"
           target="_blank"
           rel="noopener noreferrer"
         >
