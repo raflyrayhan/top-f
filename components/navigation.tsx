@@ -1,22 +1,23 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import styles from './nav.module.css'
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./nav.module.css";
 
 export default function Navbar() {
   return (
-    <header className={styles.navbar}>
+    <header
+  className={`fixed top-0 w-full z-50 px-8 py-1.5 backdrop-blur-md bg-[#2c2c2cc5] text-white flex justify-between items-center shadow transition-all duration-500 ease-in-out`}
+>
       <div className={styles.logo}>
-        <Image src="/REB Logo.png" alt="Logo" width={99} height={99} />
+        <Image src="/favicon.png" alt="Logo" width={99} height={99} />
       </div>
 
       <nav className={styles.navLinks}>
         <Link href="/" className={styles.link}>HOME</Link>
-        <Link href="/about" className={styles.link}>ABOUT</Link>
-        <Link href="/projects" className={styles.link}>PROJECTS</Link>
-        <Link href="/products" className={styles.link}>TEAM</Link>
-        <Link href="/partners" className={styles.link}>PARTNERS</Link>
+        <Link href="/products" className={styles.link}>PRODUCTS</Link>
+        <Link href="/portofolio" className={styles.link}>PORTOFOLIO</Link>
         <Link href="/contact" className={styles.link}>CONTACT</Link>
       </nav>
     </header>
-  )
+  );
 }

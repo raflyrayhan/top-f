@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="text-center p-6 bg-[#c1c1c18c] text-sm text-gray-600">
-      © 2025 PT. Rekayasa Energi Bersama —{' '}
+    <footer className="text-center p-6 bg-[#f5f5f5dd] text-sm text-black">
+      © 2025 PT. Techno Orbit Particle Filtration |{' '}
       <span className="inline-flex items-center gap-1">
         Website by
         <a

@@ -1,43 +1,103 @@
-/* Navbar container */
+/* Navbar Container */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 50;
-  padding: 16px 32px;
-  background-color: #ffffffc6;
+  padding: .5rem 2rem;
+  background-color: rgba(26, 26, 26, 0.8); /* Dark semi-transparent */
   backdrop-filter: blur(12px);
-  color: #980303; /* gray-800 */
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo styling (optional) */
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-weight: bold;
-  font-size: 1.25rem;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff;
 }
 
-/* Navigation links container */
+/* Navigation links */
 .navLinks {
   display: flex;
   gap: 2rem;
-  font-weight: 600;
+  font-weight: 400;
   align-items: center;
 }
 
-/* Link styling */
+/* Link Style with Underline Hover Animation */
 .link {
+  position: relative;
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding-bottom: 2px;
   transition: color 0.3s ease;
 }
 
-.link:hover {
-  color: #0d9488; /* teal-600 */
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #d1d1d1; /* Light gray accent */
+  transition: width 0.3s ease;
 }
+
+.link:hover {
+  color: #f5f5f5;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.fade-in {
+  animation: fadeSlide 0.5s ease-out;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(0);
+  opacity: 1;
+}
+/* Opsional kalau belum pakai Tailwind animasi */
+.opacity-0 {
+  opacity: 0 !important;
+}
+.opacity-100 {
+  opacity: 1 !important;
+}
+.translate-y-0 {
+  transform: translateY(0) !important;
+}
+.-translate-y-full {
+  transform: translateY(-100%) !important;
+}
+.pointer-events-none {
+  pointer-events: none;
+}
+.pointer-events-auto {
+  pointer-events: auto;
+}
+

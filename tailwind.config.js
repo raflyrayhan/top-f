@@ -5,7 +5,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {animation: {
+    fadeSlide: "fadeSlide 0.5s ease-in-out",
+  },
+  keyframes: {
+    fadeSlide: {
+      "0%": { opacity: "0", transform: "translateY(-100%)" },
+      "100%": { opacity: "1", transform: "translateY(0)" },
+    },
+  },},
   },
   plugins: [],
 }

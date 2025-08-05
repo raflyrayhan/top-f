@@ -3,8 +3,8 @@ import Navbar from '@/components/navigation'
 import Footer from '@/components/footer'
 
 export const metadata = {
-  title: 'Rekayasa Energi Bersama',
-  description: 'PT. Rekayasa Energi Bersama is an integrated engineering company providing complete package solutions for the oil & gas, energy, and infrastructure sectors since 2018. We specialize in design, fabrication, and procurement with a strong commitment to quality and innovation.',
+  title: 'TOP Filtration',
+  description: 'PT. Techno Orbit Particle Filtration (TOP-F) is a specialist in advanced filtration and fabrication for Oil & Gas, Petrochemical, and Energy sectors. Discover our high-performance filters, strainers, and engineered solutions designed for extreme conditions.',
 }
 
 import { ReactNode } from 'react';

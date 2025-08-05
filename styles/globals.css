@@ -5,21 +5,23 @@
 /* 🌐 Global Color Theme */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --accent: #0d9488;
+  --foreground: #1a1a1a;
+  --accent: #d1d1d1;
+  --accent-hover: #999999;
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'Courier New', Courier, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {   
-    --background: #ffffff;
+  :root {
+    --background: #111111;
     --foreground: #ededed;
-    --accent: #22d3ee;
+    --accent: #444444;
+    --accent-hover: #666666;
   }
 }
 
-/* 🔧 Reset and Base Styling */
+/* 🔧 Base Reset + Layout */
 html, body {
   margin: 0;
   padding: 0;
@@ -30,49 +32,117 @@ html, body {
   color: var(--foreground);
   scroll-behavior: smooth;
   overflow-x: hidden;
-  transition: background-color 0.3s, color 0.3s;
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE 10+ */
+  transition: background-color 0.4s ease, color 0.4s ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 body::-webkit-scrollbar {
-  display: none;               /* Chrome, Safari */
+  display: none;
 }
 
 /* 🎨 Typography */
 h1, h2, h3, h4 {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--foreground);
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+p {
+  line-height: 1.6;
+  color: #444;
+  transition: color 0.3s ease;
 }
 
 /* 🔗 Link Styling */
 a {
-  color: var(--accent);
+  color: rgb(0, 0, 0);
   text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+a:hover::after {
+  width: 100%;
+}
+
+/* 🎛️ Button Styling */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  background-color: var(--foreground);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  color: rgb(0, 0, 0);
+  transform: translateY(-1px);
+}
+
+/* 🌟 Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img:hover {
+  filter: brightness(1.05);
+}
+
+/* 🧩 Section Fade-In Animation */
+section {
+  animation: fadeInUp 0.8s ease-in-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🧩 Partner Section */
 .partner-space {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 4rem 1rem;
-  background-color: #ffffff;
+  background-color: var(--background);
   text-align: center;
   gap: 2rem;
 }
 
 .partner-space h2 {
-  font-family: var(--font-sans);
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
+  color: var(--foreground);
   margin-bottom: 0.5rem;
 }
 
 .partner-space p {
-  font-family: var(--font-sans);
   font-size: 1.125rem;
   color: #555;
   max-width: 720px;
@@ -92,4 +162,8 @@ a:hover {
   max-width: 180px;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+.partner-logos img:hover {
+  transform: scale(1.05);
 }
